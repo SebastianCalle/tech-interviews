@@ -11,6 +11,16 @@ export interface ISurveyResponse {
     completed: Date;
 }
 
+export interface IAnswerCount {
+    answer?: string;
+    count?: number;
+}
+
+export interface ISurveyResult {
+    question?: string;
+    answers?: IAnswerCount[]
+}
+
 class SurveyResponse implements ISurveyResponse {
 
     public id: number;
