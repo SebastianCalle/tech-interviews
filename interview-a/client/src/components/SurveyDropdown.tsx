@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, {FormEvent, useEffect, useState} from "react";
 import { useHistory } from "react-router-dom";
 import { ISurvey } from "../entities/Survey";
 import { Form, Button } from "react-bootstrap";
@@ -6,18 +6,18 @@ import { Form, Button } from "react-bootstrap";
 
 
 const SurveyDropdown = () => {
-    const [surveyList, setSurveyList] = useState<ISurvey[]>();
-    const [selectedSurvey, setSelectedSurvey] = useState<string>("1");
+    const [surveyList, setSurveyList] = useState<ISurvey[]>([]);
+    const [selectedSurvey, setSelectedSurvey] = useState<ISurvey['id']>(1);
 
     let history = useHistory();
 
-    const onSubmit = (e: any) => {
+    const onSubmit = (e: FormEvent) => {
         const l = `/survey/${selectedSurvey}`
         history.push(l)
     }
-    
-    const onChange = (e: any) => {
-        setSelectedSurvey(e.target.value)
+
+    const onChange = (e:React.ChangeEvent<HTMLSelectElement>) => {
+        setSelectedSurvey(parseInt(e.target.value))
     }
 
     useEffect(() => {
