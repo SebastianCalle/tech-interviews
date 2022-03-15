@@ -5,7 +5,7 @@ import ResponseDao from '@daos/Response/ResponseDao.mock';
 import { paramMissingError } from '@shared/constants';
 
 const responseDao = new ResponseDao();
-const { BAD_REQUEST, CREATED, OK } = StatusCodes;
+const { BAD_REQUEST, CREATED } = StatusCodes;
 
 
 /**
@@ -26,4 +26,3 @@ const { BAD_REQUEST, CREATED, OK } = StatusCodes;
     await responseDao.add(response);
     return res.status(CREATED).end();
 }
-
