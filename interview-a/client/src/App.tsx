@@ -8,6 +8,7 @@ import {
 import "./App.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import SurveyView from "./views/SurveyView"
+import CountResponses from "./components/Responses";
 import { Container, Button } from "react-bootstrap";
 
 function App() {
@@ -24,6 +25,13 @@ function App() {
             <SurveyView surveyId={1}/>
           </Route>
         </Switch>
+      </Container>
+      <Container className="main pad-t">
+          <Switch>
+              <Route path="/responses">
+                  <CountResponses/>
+              </Route>
+          </Switch>
       </Container>
     </Router>
   );
